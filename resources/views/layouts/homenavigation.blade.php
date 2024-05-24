@@ -21,35 +21,16 @@
                 </a>
                 <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                     @if (Route::has('login'))
-                        <a href="{{ route('login') }}" class="text-white bg-green-600 hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-300 font-semibold rounded-lg text-sm md:px-5 md:py-3 px-3 py-1 text-center">
+                        <a href="{{ route('login') }}" class="text-white bg-green-600 hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-300 font-semibold rounded-lg text-sm md:px-5 md:py-3 px-3 py-2 text-center">
                             Login
                         </a>
                     @endif
+                    <button type="button" data-collapse-toggle="navbar-sticky" class=" inline-flex items-center p-2 w-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200">
+                        menu
+                    </button>
                 </div>
             </div>
         </nav>
-        @if (Route::has('login'))
-            <nav class="-mx-3 flex flex-1 justify-end">
-                @auth
-                    <a href="{{ url('/dashboard') }}"
-                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                        Dashboard
-                    </a>
-                @else
-                    <a href="{{ route('login') }}">
-                        Log in
-                    </a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                            Register
-                        </a>
-                    @endif
-                @endauth
-            </nav>
-        @endif
-        </header>
         <main>
             @yield('home-content')
         </main>
